@@ -1,0 +1,12 @@
+PUT http://localhost:25025/updatecall/2 HTTP/1.1
+
+
+{
+	"Id"  : "2",
+	"CustomerId"  : "",
+	"FullName"    : "",
+	"DateOfCall"  : "",
+	"TimeOfCall"  : "",
+	"Subject"     : "",
+	"Description" : "new new test 333333333333"
+}

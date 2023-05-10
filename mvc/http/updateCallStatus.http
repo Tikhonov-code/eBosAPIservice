@@ -1,0 +1,17 @@
+PUT http://localhost:25025/updatecall/2 
+
+Content-Type: application/json
+
+{
+    "description": "test updated value 5555555"
+}
+
+###
+
+PUT http://62.109.17.140:25025/updatecall/2 
+
+Content-Type: application/json
+
+{
+    "description": "test updated value 5555555"
+}

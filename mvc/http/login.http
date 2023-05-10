@@ -1,0 +1,18 @@
+POST http://localhost:25025/login HTTP/1.1
+
+Content-Type: application/json
+
+{
+    "username":"a@a.a",
+    "password": "e10adc3949ba59abbe56e057f20f883e"
+}
+
+###
+POST http://62.109.17.140:25025/login/a@a.a/123 HTTP/1.1
+
+Content-Type: application/json
+
+{
+    "username":"a@a.a",
+    "password": "e10adc3949ba59abbe56e057f20f883e"
+}
