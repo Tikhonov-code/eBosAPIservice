@@ -6,6 +6,7 @@ import (
 	//"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"net/http"
+
 )
 
 var (
@@ -17,6 +18,7 @@ func init() {
 }
 
 func StartApp() {
+	
 	router.Use(func(c *gin.Context) {
         c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
         c.Writer.Header().Set("Access-Control-Allow-Methods", "OPTIONS, GET, POST, PUT, DELETE")

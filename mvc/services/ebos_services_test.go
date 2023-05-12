@@ -2,13 +2,22 @@ package services
 
 import (
 	"fmt"
+	"main/mvc/domain"
 	"strings"
+
 	//"log"
 	//"main/mvc/domain"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
 )
+
+func TestReadConnectionString(t *testing.T) {
+	//var connectionString string
+	connectionString := domain.ReadConnectionString()
+	assert.NotNil(t, connectionString)
+	fmt.Printf("connectionString = %s", connectionString)
+}
 
 func TestPostLogin(t *testing.T) {
 	ebss := eBOSservice{}
@@ -51,9 +60,9 @@ func TestGetCalls(t *testing.T) {
 	assert.Nil(t, err)
 	assert.NotNil(t, calls)
 
-	for _, v := range calls {
-		fmt.Printf("ID =%d  Name= %s  DateOfCall=%s  TimeOfCall=%s  Subject=%s Description=%s", v.Id, v.FullName, v.DateOfCall, v.TimeOfCall, v.Subject, v.Description)
-	}
+	//for _, v := range calls {
+	//	//fmt.Printf("ID =%d  Name= %s  DateOfCall=%s  TimeOfCall=%s  Subject=%s Description=%s", v.Id, v.FullName, v.DateOfCall, v.TimeOfCall, v.Subject, v.Description)
+	//}
 
 }
 

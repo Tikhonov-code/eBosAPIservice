@@ -17,12 +17,16 @@ type eBOSservice struct{}
 
 var (
 	EBOSservice             eBOSservice
-	StagingConnectionString = "Server=62.109.17.140;Database=EbosDB;User Id=tix;Password=1325Nikita;"
+	//StagingConnectionString = "Server=62.109.17.140;Database=EbosDB;User Id=tix;Password=1325Nikita;"
 )
 
-func OpenConnection() (*sql.DB, *utils.ApplicationError) {
 
-	conn, err := sql.Open("sqlserver", StagingConnectionString)
+func OpenConnection() (*sql.DB, *utils.ApplicationError) {
+	//StagingConnectionString = ReadConnectionString()
+	//log.Println("OpenConnection StagingConnectionString = ", StagingConnectionString)
+	log.Println("DatabaseConnection = ", domain.DatabaseConnection)
+
+	conn, err := sql.Open("sqlserver", domain.DatabaseConnection)
 	if err != nil {
 		log.Println(err.Error(), sql.ErrConnDone.Error())
 		return nil, &utils.ApplicationError{
@@ -34,6 +38,25 @@ func OpenConnection() (*sql.DB, *utils.ApplicationError) {
 
 	return conn, nil
 }
+
+//func ReadConnectionString() string {
+//	file, err := os.Open("C:\\Users\\tix19\\Documents\\eBOStest1GoAPIservice\\config.json")
+//    if err != nil {
+//        log.Fatal(err)
+//    }
+//    defer file.Close()
+//
+//    decoder := json.NewDecoder(file)
+//    config := Config{}
+//    err = decoder.Decode(&config)
+//    if err != nil {
+//        log.Fatal(err)
+//    }
+//	//"Server=62.109.17.140;Database=EbosDB;User Id=tix;Password=1325Nikita;"
+//    constring := fmt.Sprintf("Server=%s;Database=%s;User Id=%s;Password=%s;", 
+//                        config.DB.Host,config.DB.Database,config.DB.Username, config.DB.Password)
+//   return constring
+//}
 
 func (*eBOSservice) PostLogin(data string) (domain.User, *utils.ApplicationError) {
 

@@ -2,10 +2,11 @@ package app
 
 import (
 	"main/mvc/controllers"
-
+	"main/mvc/domain"
 )
 
 func mapUrls() {
+	domain.DatabaseConnection = domain.ReadConnectionString()
 	// login section
 	router.POST("/login", controllers.PostLogin)
 	//router.GET("/login/:username/:password", controllers.GetLogin)
@@ -25,7 +26,5 @@ func mapUrls() {
 
 	// reports section
 	router.GET("/report", controllers.GetReport)
-
-	
 
 }
